@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="DojoCore/DojoCore.csproj" />
+  <Project Path="Jimusho2/Jimusho2.csproj" />
+</Solution>

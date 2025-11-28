@@ -1,0 +1,11 @@
+C:\Users\Oggii80\Desktop\School Shit\Jimusho\DojoCore\bin\Debug\net10.0\DojoCore.deps.json
+C:\Users\Oggii80\Desktop\School Shit\Jimusho\DojoCore\bin\Debug\net10.0\DojoCore.dll
+C:\Users\Oggii80\Desktop\School Shit\Jimusho\DojoCore\bin\Debug\net10.0\DojoCore.pdb
+C:\Users\Oggii80\Desktop\School Shit\Jimusho\DojoCore\obj\Debug\net10.0\DojoCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Oggii80\Desktop\School Shit\Jimusho\DojoCore\obj\Debug\net10.0\DojoCore.AssemblyInfoInputs.cache
+C:\Users\Oggii80\Desktop\School Shit\Jimusho\DojoCore\obj\Debug\net10.0\DojoCore.AssemblyInfo.cs
+C:\Users\Oggii80\Desktop\School Shit\Jimusho\DojoCore\obj\Debug\net10.0\DojoCore.csproj.CoreCompileInputs.cache
+C:\Users\Oggii80\Desktop\School Shit\Jimusho\DojoCore\obj\Debug\net10.0\DojoCore.dll
+C:\Users\Oggii80\Desktop\School Shit\Jimusho\DojoCore\obj\Debug\net10.0\refint\DojoCore.dll
+C:\Users\Oggii80\Desktop\School Shit\Jimusho\DojoCore\obj\Debug\net10.0\DojoCore.pdb
+C:\Users\Oggii80\Desktop\School Shit\Jimusho\DojoCore\obj\Debug\net10.0\ref\DojoCore.dll
