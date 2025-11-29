@@ -38,10 +38,10 @@ namespace Jimusho2
 
             //With the data recorded, we can add the student to the manager
             manager.AddStudent(newStudent); //I'm still getting used to the idea that the object is doing all the work behind the curtains, but having to do only one line here is pretty neat.
-        
+
             //Next we can clear out the text boxes to prevent any accidental duplicates and remove ambiguity.
             txtFirstName.Clear();
-            txtLastName.Clear();    
+            txtLastName.Clear();
             txtBelt.Clear();
 
             //and finally, we refresh the student list
@@ -61,13 +61,87 @@ namespace Jimusho2
             else
             {
                 MessageBox.Show("No record selected."); //If no record is selected, just shows a message sayying so. 
-                
+
             }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RefreshStudentList(); //Pretty straightforward - click the button, execute the RefreshStudentList method.
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Confirm the user wants to clear the form and start a new one
+            DialogResult result = MessageBox.Show("This will clear all current students.  Continue?", "New Roster",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning); //I thought the icon would be a neat little touch
+
+            if (result == DialogResult.Yes)
+            {
+                manager = new StudentManager(); // create a whole new empty list
+
+                RefreshStudentList(); //Gotta' make sure the display doesn't reflect old information.
+
+                MessageBox.Show("New roster successfully created.");
+            }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Filter = "CSV Files|*.csv|Text Files|*.txt|All Files|*.*";
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                manager = new StudentManager(); //create a new instance for the new data
+
+                using (StreamReader reader = new StreamReader(openDialog.FileName)) //
+                {
+                    string line; //This will take the save file and break it down into lines
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        string[] parts = line.Split(','); //this splits the line at each comma (see the save method below to see an example of why, but essentially it's because a saved file from this program separates each field with a comma).
+
+                        //Now we just take those parts and make a new student record from it
+                        Student s = new Student();
+                        s.FirstName = parts[1];
+                        s.LastName = parts[2];
+                        s.BeltRank = parts[3];
+                        s.EnrollmentDate = DateTime.Parse(parts[4]);
+                        /* While this does starts reading at index 1, it isn't really necessary to read the StudentId number
+                         simply because it's automatically assigned in the AddStudent method.  I decided to keep it in the save file
+                        in case a user might want to export the data to something else.*/
+
+                        //and lastly, run the AddStudent method from the manager
+                        manager.AddStudent(s);
+                    }
+                }
+                RefreshStudentList(); //a bit redundant maybe, but updates the display with the loaded student file
+                MessageBox.Show("Load Successful");
+            }
+
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "CSV Files|*.csv|Text Files|*.txt|All Files|*.*";
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter writer = new StreamWriter(saveDialog.FileName)) //I've not messed with the StreamWriter thing before, so this line is a bit experimental, but it doesn't seem too complicated
+                {
+                    foreach (Student s in manager.GetAllStudents())
+                    {
+                        writer.WriteLine($"{s.StudentId}, {s.FirstName}, {s.LastName}, {s.BeltRank}, {s.EnrollmentDate}"); //Takes each of the fields for each student and saves it as a text file.
+                    }
+                }
+                MessageBox.Show("Save Successful"); //displays a confirmation message
+
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit(); //Pretty self-explanatory ><
         }
     }
 }

@@ -18,3 +18,4 @@ C:\Users\Oggii80\Desktop\School Shit\Jimusho\Jimusho2\obj\Debug\net10.0-windows\
 C:\Users\Oggii80\Desktop\School Shit\Jimusho\Jimusho2\obj\Debug\net10.0-windows\Jimusho2.pdb
 C:\Users\Oggii80\Desktop\School Shit\Jimusho\Jimusho2\obj\Debug\net10.0-windows\Jimusho2.genruntimeconfig.cache
 C:\Users\Oggii80\Desktop\School Shit\Jimusho\Jimusho2\obj\Debug\net10.0-windows\ref\Jimusho2.dll
+C:\Users\Oggii80\Desktop\School Shit\Jimusho\Jimusho2\obj\Debug\net10.0-windows\Jimusho2.Properties.Resources.resources
